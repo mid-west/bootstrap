@@ -1,0 +1,52 @@
+@charset "utf-8";
+
+/* =========================================================
+ normalizeの上書き
+========================================================= */
+/**
+ * normalizeに、以下のカスタマイズを加えています。
+ * 1.日本語のフォントファミリーへの対応(customized01)
+ * 2.上方向marginを0に(customized02)
+ * 3.禁則処理の追加
+ * 4.フルードイメージ対応
+*/
+
+html {
+  font-family:'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',Helvetica,Arial,'Droid Sans',sans-serif;//(customized01)
+  -ms-text-size-adjust: 100%; /* 2 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+}
+
+h1,h2,h3,h4,h5,h6,p,ul,ol,dl,table,pre {margin-top:0;}//(customized02)
+
+p,li,dt,dd,th,td,pre {//3.禁則処理の追加
+  -ms-line-break: strict;
+  line-break: strict;
+  -ms-word-break: break-strict;
+  word-break: break-strict;
+}
+
+img {
+  max-width: 100%;vertical-align: middle;//4.フルードイメージ対応
+}
+
+
+/* =========================================================
+ @media
+========================================================= */
+$small:  "only screen and (max-width:768px)";
+//$middle: "only screen and (min-width:641px) and (max-width:959px)";
+$large:  "only screen and (min-width:769px)";
+
+@import "compass";
+@import "_bootstrap";
+
+@media #{$small} {//768px以下
+  //@import "_small";
+}
+
+@media #{$large} {//768px以下
+  //@import "_large";
+}
+
+
